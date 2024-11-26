@@ -1,3 +1,4 @@
+
 require('dotenv').config();
 const { Connection, PublicKey } = require('@solana/web3.js');
 const { processRaydiumLpTransaction, connectToDatabase } = require('./newRaydiumLpService');
@@ -40,7 +41,7 @@ async function subscribeRaydium() {
                 if (tokenData) {
                     const sniperConfig = {
                         baseToken: process.env.BASE_TOKEN,
-                        targetToken: tokenData.coinMint,
+                        targetToken: tokenData.tokenAddress,
                         buyAmount: parseFloat(process.env.BUY_AMOUNT) || 1,
                         sellTargetPrice: parseFloat(process.env.SELL_TARGET_PRICE) || 2,
                         tokenData: tokenData
